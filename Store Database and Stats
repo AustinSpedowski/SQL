@@ -18,7 +18,8 @@ INSERT INTO video_games VALUES (14, "Deer Hunter", -20, 12, "PS4", 2);
 INSERT INTO video_games VALUES (15, "Spider Man", 70, 8, "PS4", 7);
 
 --Display the database ordered by price
-SELECT * FROM video_games ORDER BY price DESC;
+SELECT * FROM video_games 
+ORDER BY price DESC;
 
 --What is the avg price of PS4 games at the store?
 SELECT AVG(price) 'Avg PS4 Game Price'
