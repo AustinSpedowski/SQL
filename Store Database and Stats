@@ -1,0 +1,32 @@
+--Create a store database
+CREATE TABLE video_games (ID INTEGER PRIMARY KEY, Name TEXT, Price INTEGER, Quantity_In_Stock INTEGER, Platform TEXT, Quantity_Sold INTEGER);
+
+INSERT INTO video_games VALUES (1, "Skyrim", 70, 6, "XBOX 360", 13);
+INSERT INTO video_games VALUES (2, "Genshin Impact", 20, 10, "PC/Mobile", 12);
+INSERT INTO video_games VALUES (3, "BattleField", 60, 3, "XBOX 360", 7);
+INSERT INTO video_games VALUES (4, "Apex Legends", 60, 22, "PS4", 18);
+INSERT INTO video_games VALUES (5, "Call of Duty", 65, 6, "PS4", 5);
+INSERT INTO video_games VALUES (6, "Mine Craft", 55, 3, "Switch", 8);
+INSERT INTO video_games VALUES (7, "Mario Cart", 20, 2, "WII", 11);
+INSERT INTO video_games VALUES (8, "Clash Of Clans", 10, 13, "Mobile", 7);
+INSERT INTO video_games VALUES (9, "Far Cry", 60, 15, "XBOX 1", 10);
+INSERT INTO video_games VALUES (10, "Horizon Zero Dawn", 70, 0, "PS4", 13);
+INSERT INTO video_games VALUES (11, "God of War", 60, 6, "PS4", 4);
+INSERT INTO video_games VALUES (12, "Celtic Heros", 5, 4, "Mobile", 4);
+INSERT INTO video_games VALUES (13, "Rust", 60, 7, "PS4", 6);
+INSERT INTO video_games VALUES (14, "Deer Hunter", -20, 12, "PS4", 2);
+INSERT INTO video_games VALUES (15, "Spider Man", 70, 8, "PS4", 7);
+
+--Display the database ordered by price
+SELECT * FROM video_games ORDER BY price DESC;
+
+--What is the avg price of PS4 games at the store?
+SELECT AVG(price) 'Avg PS4 Game Price'
+FROM video_games
+WHERE Platform = 'PS4';
+
+--What is the most sold game at the store?
+SELECT Name, Price, Quantity_sold 
+FROM video_games
+ORDER BY Quantity_sold DESC
+LIMIT 5;
