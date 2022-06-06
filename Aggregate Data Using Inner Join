@@ -1,0 +1,73 @@
+--Create Table about people and age
+Create table famous_people(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER);
+
+INSERT INTO famous_people (name,age) VALUES ("John Wick", "49");
+INSERT INTO famous_people (name,age) VALUES ("David Webb", "40");
+INSERT INTO famous_people (name,age) VALUES ("Miles Prower", "28");
+INSERT INTO famous_people (name,age) VALUES ("Robin Hood", "32");
+INSERT INTO famous_people (name,age) VALUES ("Tony Stark", "39");
+INSERT INTO famous_people (name,age) VALUES ("Geralt of Rivia", "68");
+INSERT INTO famous_people (name,age) VALUES ("John Price", "53");
+INSERT INTO famous_people (name,age) VALUES ("Hanzo Hasashi", "34");
+INSERT INTO famous_people (name,age) VALUES ("Hu Tao", "24");
+INSERT INTO famous_people (name,age) VALUES ("Octane", "30");
+INSERT INTO famous_people (name,age) VALUES ("Naruto Uzamaki", "16");
+INSERT INTO famous_people (name,age) VALUES ("Son Goku", "20");
+INSERT INTO famous_people (name,age) VALUES ("Eren Yeager", "14");
+INSERT INTO famous_people (name,age) VALUES ("Satoru Gojo", "35");
+INSERT INTO famous_people (name,age) VALUES ("Tanjiro Kamado", "14");
+
+--Create table about career and nickname based on people above
+CREATE TABLE job (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    career TEXT,
+    nickname TEXT);
+
+INSERT INTO job (career, nickname) VALUES ("Assassin", "Boogy Man");
+INSERT INTO job (career, nickname) VALUES ("CIA Agent", "Jason Bourne");
+INSERT INTO job (career, nickname) VALUES ("Getaway Driver", "Baby");
+INSERT INTO job (career, nickname) VALUES ("Theif", "Robin of Loxley");
+INSERT INTO job (career, nickname) VALUES ("Super Hero", NULL);
+INSERT INTO job (career, nickname) VALUES ("Monster Slayer", "Witcher");
+INSERT INTO job (career, nickname) VALUES ("Soldier", "Captain");
+INSERT INTO job (career, nickname) VALUES ("Assassin", "Scorpion");
+INSERT INTO job (career, nickname) VALUES ("Funeral Director", NULL);
+INSERT INTO job (career, nickname) VALUES ("Legend", "DareDevil");
+INSERT INTO job (career, nickname) VALUES ("Hokage", "9 Tails");
+INSERT INTO job (career, nickname) VALUES ("Defender", "Kakarot");
+INSERT INTO job (career, nickname) VALUES ("Soldier", "Founding Titan");
+INSERT INTO job (career, nickname) VALUES ("Jujutsu Sorcerer", "Special Grade");
+INSERT INTO job (career, nickname) VALUES ("Demon Slayer", "Child of Brightness");
+
+--create table for catagory and when it released based on people above
+CREATE TABLE source (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    catagory TEXT,
+    release_year INTEGER);
+
+INSERT INTO source (catagory, release_year) VALUES ("movie", "2014");
+INSERT INTO source (catagory, release_year) VALUES ("movie", "2002");INSERT INTO source (catagory, release_year) VALUES ("movie", "2017");
+INSERT INTO source (catagory, release_year) VALUES ("movie", "1993");
+INSERT INTO source (catagory, release_year) VALUES ("movie", "2008");
+INSERT INTO source (catagory, release_year) VALUES ("video game", "2007");
+INSERT INTO source (catagory, release_year) VALUES ("video game", "2007");
+INSERT INTO source (catagory, release_year) VALUES ("video game", "1992");
+INSERT INTO source (catagory, release_year) VALUES ("video game", "2020");
+INSERT INTO source (catagory, release_year) VALUES ("video game", "2019");
+INSERT INTO source (catagory, release_year) VALUES ("anime", "2007");
+INSERT INTO source (catagory, release_year) VALUES ("anime", "1989");
+INSERT INTO source (catagory, release_year) VALUES ("anime", "2013");
+INSERT INTO source (catagory, release_year) VALUES ("anime", "2020");
+INSERT INTO source (catagory, release_year) VALUES ("anime", "2019");
+
+--Perform a join to get name, what they are called, age, and when it initially released
+SELECT famous_people.name, job.nickname, famous_people.age, source.release_year
+FROM famous_people
+JOIN job
+ON famous_people.id = job.id
+JOIN source
+ON famous_people.id = source.id
+ORDER BY release_year
